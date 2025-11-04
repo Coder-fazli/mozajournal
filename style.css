@@ -680,6 +680,21 @@ text-decoration: none; /* убираем подчёркивание */
 color: inherit;        /* наследуем цвет текста */
 }
 
+/* Single Post Styles  */
+.single-post { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+.post-title { font-size: 2rem; margin-bottom: 12px; }
+.post-meta { color:#888; font-size:0.95rem; margin-bottom:20px; }
+.post-thumbnail img { width:100%; border-radius:10px; margin-bottom:20px; }
+.post-body { line-height:1.7; color:#333; }
+.post-tags a { display:inline-block; background:#eee; padding:6px 10px; border-radius:6px; margin-right:6px; text-decoration:none; color:#333; }
+.author-box { display:flex; gap:15px; padding:20px; background:#fafafa; border-radius:10px; margin-top:30px; align-items:center; }
+.author-avatar img { border-radius:50%; }
+.related-posts { margin-top:40px; }
+.related-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.related-item img { width:100%; border-radius:8px; }
+
+
+
 .article-card_date{
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
@@ -905,6 +920,9 @@ max-width: none;
 .cover-stars__header {
 padding-bottom: 30px;
 }
+
+.related-grid { grid-template-columns:repeat(2,1fr); }
+.single-post { padding:24px 12px; }
 
 }
 
