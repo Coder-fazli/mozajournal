@@ -203,7 +203,7 @@ if ($last_posts->have_posts()) :
 </div>
 <?php
     endif;
-endif;
+  endif;
 
 wp_reset_postdata();
 ?>
