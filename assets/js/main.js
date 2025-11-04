@@ -45,7 +45,7 @@ btnToggle.addEventListener('click', () => {
 
 btnClose.addEventListener('click', () => {
     overlay.classList.remove('is-open');
-    document.body.classList.remove('body--no--scroll');
+    document.body.classList.remove('body--no-scroll');
   });
 
  overlay.addEventListener('click', (banana) => {
