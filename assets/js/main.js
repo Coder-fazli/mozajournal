@@ -12,20 +12,44 @@ window.addEventListener('scroll', () => {
 
 const hamMenu = document.querySelector('.ham-menu');
 const navContainer = document.querySelector('.nav-main-container');
-const overlayBackdrop  = document.querySelector('.backdrop')
+const backdrop = document.querySelector('.backdrop');
 
-hamMenu.addEventListener( 'click', () => {
-hamMenu.classList.toggle('active');
-navContainer.classList.toggle('active');
-overlayBackdrop.classList.toggle('active');
+// Toggle menu
+hamMenu.addEventListener('click', () => {
+  hamMenu.classList.toggle('active');
+  navContainer.classList.toggle('active');
+  backdrop.classList.toggle('active');
+  document.body.classList.toggle('no-scroll');
 });
 
-// overlayBackdrop.addEventListener('click', (e) => {
-//   if (!form.contains(e.target)) {
-//     navContainer.classList.remove('active');
-//     overlayBackdrop.classList.remove('active');
-//   }
-// });
+// Close menu when clicking backdrop
+backdrop.addEventListener('click', () => {
+  hamMenu.classList.remove('active');
+  navContainer.classList.remove('active');
+  backdrop.classList.remove('active');
+  document.body.classList.remove('no-scroll');
+});
+
+// Close menu when clicking a link
+const navLinks = document.querySelectorAll('.nav_list a');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamMenu.classList.remove('active');
+    navContainer.classList.remove('active');
+    backdrop.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  });
+});
+
+// Close menu on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navContainer.classList.contains('active')) {
+    hamMenu.classList.remove('active');
+    navContainer.classList.remove('active');
+    backdrop.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  }
+});
 
 /*   SEARCH BAR   */
 

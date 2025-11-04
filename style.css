@@ -603,7 +603,7 @@ transform: translateY(-50%);
   bottom: 12px;
   left: 12px;
   z-index: 1;
-  display: inline-flex;
+  display: inline-flethex;
   align-items: center;
   backdrop-filter: blur(6px);
   padding: 6px 12px; 
