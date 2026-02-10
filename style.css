@@ -293,10 +293,12 @@ main {
 }
 
 .small-article h3 {
-  font-size: 14px;
-  color: #888;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
   margin-top: 5px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .small-article p {
