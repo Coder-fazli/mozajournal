@@ -3,8 +3,11 @@
 /**
  * Single post template
  */
-get_header();
+get_header(); ?>
 
+<main class="main-content">
+
+<?php
 // single.php — только секция single post
 if ( have_posts() ) :
   while ( have_posts() ) : the_post(); ?>

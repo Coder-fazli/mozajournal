@@ -5,6 +5,8 @@
  */
 get_header(); ?>
 
+<main class="main-content">
+
 <h1><?php printf( esc_html__( 'Search results for: %s', 'mystarter' ), '<em>' . get_search_query() . '</em>' ); ?></h1>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

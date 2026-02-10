@@ -680,7 +680,7 @@ color: inherit;        /* наследуем цвет текста */
 }
 
 /* Single Post Styles  */
-.single-post { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+section.single-post { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
 .post-title { font-size: 2rem; margin-bottom: 12px; }
 .post-meta { color:#888; font-size:0.95rem; margin-bottom:20px; }
 .post-thumbnail img { width:100%; border-radius:10px; margin-bottom:20px; }
@@ -921,7 +921,7 @@ padding-bottom: 30px;
 }
 
 .related-grid { grid-template-columns:repeat(2,1fr); }
-.single-post { padding:24px 12px; }
+section.single-post { padding:24px 12px; }
 
 }
 

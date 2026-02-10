@@ -210,7 +210,6 @@ wp_reset_postdata();
 </section>
 
   </div>
-</main>
 
 
 
