@@ -18,8 +18,17 @@ Tags: blog, two-columns, custom-menu, custom-logo, featured-images
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* без кавычек */
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
 }
 
 .logo-wrapper {
