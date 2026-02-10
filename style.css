@@ -974,13 +974,15 @@ section.single-post {
 .backdrop{
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* semi-transparent black */
+  background: rgba(0, 0, 0, 0.45);
   opacity: 0;
-  z-index: 1001; 
-  transition:  0.5s ease;
+  z-index: 1001;
+  pointer-events: none;
+  transition: 0.5s ease;
 }
 .backdrop.active{
   opacity: 1;
+  pointer-events: auto;
 }
 .nav_list{
 align-items: stretch; 
