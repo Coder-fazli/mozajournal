@@ -20,11 +20,13 @@ get_header(); ?>
              if ($hero_posts->have_posts()) : ?> 
                 <?php  while ($hero_posts->have_posts()) : $hero_posts->the_post(); ?>
                   <article class="small-article">
+                    <a href="<?php the_permalink(); ?>">
                     <?php if (has_post_thumbnail()) : ?>
                         <img src="<?php the_post_thumbnail_url('medium');?>" alt="<?php the_title(); ?>">
                     <?php endif; ?>
+                    </a>
                       <span class="category"><?php the_category(); ?></span>
-                     <h3><?php the_title(); ?></h3>
+                     <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                      <p class="author"><?php the_author(); ?></p>
                  </article>
              <?php endwhile; ?>
@@ -35,11 +37,12 @@ get_header(); ?>
         </div> <!--hero left-->
             
           <div class="hero-main">
+            <a href="<?php the_permalink(); ?>">
             <?php if (has_post_thumbnail()) : ?>
-              <img src="<?php the_post_thumbnail_url('mediun'); ?>" alt="<?php the_title(); ?>">
+              <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
            <?php endif; ?>
-
-           <h2><?php the_title(); ?></h2>
+            </a>
+           <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
            <p class="author"><?php the_author(); ?></p>
             </div>
             
