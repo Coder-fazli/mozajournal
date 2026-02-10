@@ -999,13 +999,7 @@ max-width: none;
   }
 
 .search-toggle {
-  position: fixed;
-  top: calc(var(--header-h)/2);
-  right: 16px;
-  transform: translateY(-150%);
-  z-index: 1100;
-  color:#222;
-  padding-top: 79px;
+  display: none;
   }
 
   .search-toggle svg {
