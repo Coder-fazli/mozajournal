@@ -370,15 +370,17 @@ main {
   flex: 1;
 }
 .sidebar-item h5 {
+  text-transform: none;
+  font-family: 'Helvetica Neue', Tajawal, Helvetica, sans-serif;
   font-feature-settings: normal;
-  letter-spacing: -0.0142857em;
-  font-size: 16px;
   font-style: normal;
-  line-height: 1.3;
-  margin: 0 0 4px;
+  letter-spacing: -0.0142857em;
   line-break: auto;
   line-height: 1.4em;
+  font-size: 16px;
   font-weight: 600;
+  overflow-wrap: normal;
+  margin-bottom: 0.5rem;
   color: black;
 }
 
