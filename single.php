@@ -8,73 +8,78 @@ get_header(); ?>
 <main class="main-content">
 
 <?php
-// single.php — только секция single post
 if ( have_posts() ) :
   while ( have_posts() ) : the_post(); ?>
-  
+
   <section class="single-post">
     <article id="post-<?php the_ID(); ?>" <?php post_class('post-article'); ?>>
+      <!-- Category -->
+      <?php
+        $cats = get_the_category();
+        if ( $cats ) : ?>
+          <div class="post-category">
+            <?php echo esc_html( $cats[0]->name ); ?>
+          </div>
+      <?php endif; ?>
+
       <!-- Title -->
       <h1 class="post-title entry-title"><?php the_title(); ?></h1>
 
       <!-- Meta -->
       <div class="post-meta entry-meta">
+        <span class="post-author">By <?php the_author_posts_link(); ?></span>
+        <span class="meta-sep">&middot;</span>
         <span class="post-date"><?php echo esc_html( get_the_date() ); ?></span>
-        <span class="meta-sep">•</span>
-        <span class="post-author"><?php the_author_posts_link(); ?></span>
-        <?php if ( function_exists('the_category') ) : ?>
-          <span class="meta-sep">•</span>
-          <span class="post-cats"><?php the_category(', '); ?></span>
-        <?php endif; ?>
-        </div>
+      </div>
+
+      <!-- Social share -->
+      <div class="post-share">
+        <a href="<?php echo esc_url( 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode( get_permalink() ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a href="<?php echo esc_url( 'https://twitter.com/intent/tweet?text=' . urlencode( get_the_title() . ' ' . get_permalink() ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="<?php echo esc_url( 'https://pinterest.com/pin/create/button/?url=' . urlencode( get_permalink() ) . '&description=' . urlencode( get_the_title() ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest">
+          <i class="fa fa-pinterest"></i>
+        </a>
+        <a href="mailto:?subject=<?php echo rawurlencode( get_the_title() ); ?>&body=<?php echo rawurlencode( get_permalink() ); ?>" aria-label="Share via Email">
+          <i class="fa fa-envelope"></i>
+        </a>
+      </div>
 
       <!-- Featured image -->
       <?php if ( has_post_thumbnail() ) : ?>
         <div class="post-thumbnail">
-          <?php the_post_thumbnail( 'large', array( 'class' => 'aligncenter' ) ); ?>
+          <?php the_post_thumbnail( 'large' ); ?>
         </div>
       <?php endif; ?>
 
       <!-- Content -->
       <div class="post-body entry-content">
         <?php
-          // the_content выводит контент и пагинацию (<!--nextpage-->)
           the_content();
-
-          // Если нужно — выводим пагинацию для поста (части поста)
           wp_link_pages( array(
-            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'your-theme-textdomain' ),
+            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mystarter' ),
             'after'  => '</div>',
           ) );
         ?>
-      </div>
-
-      <!-- Tags -->
-      <?php if ( has_tag() ) : ?>
-        <div class="post-tags">
-          <?php the_tags( '', ' ', '' ); ?>
-        </div>
-      <?php endif; ?>
-
-      <!-- Social share (простая реализация) -->
-      <div class="post-share">
-        <a href="<?php echo esc_url( 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode( get_permalink() ) ); ?>" target="_blank" rel="noopener noreferrer">Share FB</a>
-        <a href="<?php echo esc_url( 'https://twitter.com/intent/tweet?text=' . urlencode( get_the_title() . ' ' . get_permalink() ) ); ?>" target="_blank" rel="noopener noreferrer">Tweet</a>
       </div>
     </article>
 
     <!-- Author box -->
     <aside class="author-box">
       <div class="author-avatar">
-        <?php echo get_avatar( get_the_author_meta( 'ID' ), 96 ); ?>
+        <?php echo get_avatar( get_the_author_meta( 'ID' ), 80 ); ?>
       </div>
       <div class="author-info">
+        <span class="author-label">Written by</span>
         <h4 class="author-name"><?php the_author_posts_link(); ?></h4>
         <p class="author-bio"><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
       </div>
     </aside>
 
-    <!-- Related posts (simple by category) -->
+    <!-- Related posts -->
     <?php
       $related = new WP_Query( array(
         'posts_per_page' => 4,
@@ -84,15 +89,13 @@ if ( have_posts() ) :
 
       if ( $related->have_posts() ) : ?>
         <div class="related-posts">
-          <h3><?php esc_html_e( 'Related Posts', 'your-theme-textdomain' ); ?></h3>
+          <h3><?php esc_html_e( 'Related Posts', 'mystarter' ); ?></h3>
           <div class="related-grid">
             <?php while ( $related->have_posts() ) : $related->the_post(); ?>
               <article class="related-item">
                 <a href="<?php the_permalink(); ?>">
                   <?php if ( has_post_thumbnail() ) : ?>
                     <?php the_post_thumbnail( 'medium' ); ?>
-                  <?php else: ?>
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/placeholder-300x200.png' ); ?>" alt="">
                   <?php endif; ?>
                   <h4><?php the_title(); ?></h4>
                 </a>
@@ -104,16 +107,6 @@ if ( have_posts() ) :
       endif;
       wp_reset_postdata();
     ?>
-
-    <!-- Comments -->
-    <div class="comments-wrap">
-      <?php
-        // Выведет шаблон комментариев, если они разрешены
-        if ( comments_open() || get_comments_number() ) {
-          comments_template();
-        }
-      ?>
-    </div>
   </section>
 
 <?php

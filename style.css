@@ -692,18 +692,170 @@ text-decoration: none; /* убираем подчёркивание */
 color: inherit;        /* наследуем цвет текста */
 }
 
-/* Single Post Styles  */
-section.single-post { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-.post-title { font-size: 2rem; margin-bottom: 12px; }
-.post-meta { color:#888; font-size:0.95rem; margin-bottom:20px; }
-.post-thumbnail img { width:100%; border-radius:10px; margin-bottom:20px; }
-.post-body { line-height:1.7; color:#333; }
-.post-tags a { display:inline-block; background:#eee; padding:6px 10px; border-radius:6px; margin-right:6px; text-decoration:none; color:#333; }
-.author-box { display:flex; gap:15px; padding:20px; background:#fafafa; border-radius:10px; margin-top:30px; align-items:center; }
-.author-avatar img { border-radius:50%; }
-.related-posts { margin-top:40px; }
-.related-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-.related-item img { width:100%; border-radius:8px; }
+/* Single Post Styles */
+section.single-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.post-category {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.post-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.post-meta {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-meta .meta-sep {
+  color: #ccc;
+}
+
+/* Share icons */
+.post-share {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  margin-bottom: 24px;
+  border-top: 1px solid rgba(0,0,0,.08);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.post-share a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  color: #555;
+  font-size: 15px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.post-share a:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.post-thumbnail {
+  margin-bottom: 28px;
+}
+
+.post-thumbnail img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.post-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.post-body p {
+  margin-bottom: 1.4em;
+}
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Author box */
+.author-box {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: #fafafa;
+  border-radius: 12px;
+  margin-top: 40px;
+  align-items: flex-start;
+}
+
+.author-avatar img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.author-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+}
+
+.author-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 4px 0 8px;
+}
+
+.author-bio {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Related posts */
+.related-posts {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.related-posts h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.related-item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.related-item h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 8px;
+  line-height: 1.4;
+  color: #333;
+}
 
 
 
@@ -933,8 +1085,9 @@ max-width: none;
 padding-bottom: 30px;
 }
 
-.related-grid { grid-template-columns:repeat(2,1fr); }
-section.single-post { padding:24px 12px; }
+.related-grid { grid-template-columns: repeat(2, 1fr); }
+section.single-post { padding: 24px 16px; }
+.author-box { flex-direction: column; align-items: center; text-align: center; }
 
 }
 
